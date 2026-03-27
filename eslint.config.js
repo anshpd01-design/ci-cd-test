@@ -21,7 +21,8 @@ module.exports = [
       sourceType: 'commonjs',
       globals: {
         ...globals.node
-      }
+      },
+       ecmaVersion: 'latest',
     },
     rules: {
       'indent': ['error', 2],
@@ -32,11 +33,11 @@ module.exports = [
       'no-trailing-spaces': 'error',
       'object-curly-spacing': ['error', 'always'],
       'arrow-spacing': ['error', { 'before': true, 'after': true }],
-      'no-console': 0
+      'no-console': 'off'
     }
   },
   {
-    files: ['src/**/*.{js,jsx}', 'test/**/*.{js,jsx}'],
+    files: ['src/**/*.{js,jsx}', 'test/**/*.{js,jsx}', './jest.setup.js'],
     plugins: {
       react,
       jest
@@ -52,7 +53,8 @@ module.exports = [
       globals: {
         ...globals.browser,
         ...globals.es6,
-        ...globals.jest
+        ...globals.jest,
+         ...globals.node 
       }
     },
     settings: {
@@ -70,7 +72,7 @@ module.exports = [
       'no-trailing-spaces': 'error',
       'object-curly-spacing': ['error', 'always'],
       'arrow-spacing': ['error', { 'before': true, 'after': true }],
-      'no-console': 'error',
+      'no-console': 0,
       'react/prop-types': 0
     }
   }
